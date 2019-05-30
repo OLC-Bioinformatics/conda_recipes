@@ -1,0 +1,55 @@
+{% set name = "cowbat" %}
+{% set pipname = "COWBAT" %}
+{% set version = "0.5.0.4" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "46d8bf4339766b0baab2dddba8a257e9ee2f04298cc63db5fc4d327dd785a56b" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ pipname[0] }}/{{ pipname }}/{{ pipname }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 2
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - geneseekr=0.3.6=py_1
+    - sipprverse=0.2.38=py_1
+    - genomeqaml=0.0.13=py_0
+    - sistr_cmd=1.0.2=py36_0
+    - fastqc=0.11.8=1
+    - ectyper=0.8.1=py_0
+    - qualimap=2.2.2c=0
+    - skesa=2.3.0=h4ef8376_0
+    - clark=1.2.5.1=h6bb024c_0
+
+test:
+  imports:
+    - cowbat
+    - cowbat.get
+    - cowbat.metagenomefilter
+    - tests
+
+about:
+  home: https://github.com/OLC-Bioinformatics/COWBAT
+  license: MIT
+  license_family: MIT
+  license_file: ''
+  summary: CFIA OLC Workflow for Bacterial Assembly and Typing
+  description: 'CFIA OLC Workflow for Bacterial Assembly and Typing'
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''

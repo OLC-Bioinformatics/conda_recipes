@@ -1,0 +1,49 @@
+{% set name = "in_silico_pcr" %}
+{% set version = "0.0.2.2" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "cccd2f3ccb53f2adbec7ef2d7ba4102faa57cb8dad8f5263dd86e298279e2536" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - bbmap=38.49=h14c3975_0
+    - spades=3.13.1=0
+    - blast=2.7.1=h4422958_6
+    - olctools=1.1.1=py_0
+    - genemethods=0.0.0.10=py_0
+    - validator_helper=0.0.6=py_0
+
+test:
+  imports:
+    - primer_finder
+  commands:
+    - primer_finder.py
+
+about:
+  home: https://github.com/adamkoziol/in_silico_PCR
+  license: MIT
+  license_family: MIT
+  summary: Perform in silico PCR analyses on FASTA- and/or FASTQ-formatted files 
+  description: ''
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: adamkoziol

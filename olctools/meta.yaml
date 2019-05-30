@@ -1,0 +1,50 @@
+{% set name = "olctools" %}
+{% set version = "1.1.1" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "a4c48e7b69dc1912485f8280f9cb466bd927cf1e2c295e6338b51b3abc6668e7" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/O/OLCTools/OLCTools-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - pytest=4.5.0=py36_0
+    - biopython=1.72=py36_0
+    - rauth=0.7.3=py_0
+    - click=7.0=py_0
+    - xlsxwriter=1.1.8=py_0
+    - pandas=0.23.4=py36hf8a1672_0
+
+test:
+  imports:
+    - olctools.accessoryFunctions
+    - olctools.databasesetup
+    - tests
+
+about:
+  home: https://github.com/lowandrew/OLCTools
+  license: MIT
+  license_family: MIT
+  license_file: ''
+  summary: Python package for commonly used tools at OLC
+  description: ''
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: adamkoziol

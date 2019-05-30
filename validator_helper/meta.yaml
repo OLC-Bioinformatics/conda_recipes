@@ -1,0 +1,45 @@
+{% set name = "validator_helper" %}
+{% set version = "0.0.6" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "3893671cb5924364d44f52c5b3ab2a1044d95646209bf3b05e2bfc728501508c" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - pandas=0.23.4=py36hf8a1672_0
+    - numpy=1.16.3=py36h99e49ec_0
+    - pytest=4.5.0=py36_0
+
+test:
+  imports:
+    - validator_helper
+
+about:
+  home: https://github.com/lowandrew/Validator_Helper
+  license: MIT
+  license_family: MIT
+  license_file: ''
+  summary: Package to help validate that CSVs outputted by your pipelines match up with what you think they should.
+  description: ''
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''

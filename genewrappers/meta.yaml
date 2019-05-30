@@ -1,0 +1,44 @@
+{% set name = "genewrappers" %}
+{% set version = "0.0.0.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 5a433469052e43b256c82db5067f129fc2bf81c0c2b26556591c46924399688a
+
+build:
+  number: 0
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - olctools=1.1.1=py_0
+    - illumina-interop=1.1.8=hfc679d8_0
+    - bbmap=38.49=h14c3975_0
+    - mash=2.1=h9dd4a16_0
+
+test:
+  imports:
+    - genewrappers
+    - genewrappers.biotools
+    - tests
+
+about:
+  home: https://github.com/adamkoziol/genewrappers
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: Python wrappers for bioinformatic tools
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - adamkoziol

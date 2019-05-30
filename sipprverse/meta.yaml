@@ -1,0 +1,54 @@
+{% set name = "sipprverse" %}
+{% set version = "0.2.38" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "403fa93aae1491f5d8a18394d162c17e98ce92c74fb721af6a77a2b3e8799ddb" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 1
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - bcl2fastq=2.19.0=1
+    - blast=2.7.1=h4422958_6
+    - bowtie2=2.3.4.3=py36h2d50403_0
+    - kma=1.2.0=h84994c4_0
+    - seqtk=1.3=ha92aebf_0
+    - validator_helper=0.0.6=py_0
+    - geneseekr=0.3.6=py_1
+    - confindr=0.7.0=py_1
+
+test:
+  imports:
+    - sipprverse
+    - sipprverse.sippr
+    - sipprverse.validation
+    - tests
+
+about:
+  home: https://github.com/OLC-Bioinformatics/sipprverse
+  license: MIT
+  license_family: MIT
+  license_file: ''
+  summary: Object oriented raw read typing software
+  description: "This pipeline searches for gene targets in FASTQ files. These files may be previously generated, or created from BCL files from a run of an Illumina MiSeq. 
+		The latter functionality is to allow for the creation of FASTQ files from an in progress MiSeq run."
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''
