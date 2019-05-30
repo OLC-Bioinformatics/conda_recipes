@@ -15,7 +15,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 2
+  number: 3
   noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
@@ -33,6 +33,7 @@ requirements:
     - qualimap=2.2.2c=0
     - skesa=2.3.0=h4ef8376_0
     - clark=1.2.5.1=h6bb024c_0
+    - mob_suite=1.4.9.1=py_0
 
 test:
   imports:
