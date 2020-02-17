@@ -1,39 +1,35 @@
 {% set name = "cowbat" %}
-{% set pipname = "COWBAT" %}
-{% set version = "0.5.0.4" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "46d8bf4339766b0baab2dddba8a257e9ee2f04298cc63db5fc4d327dd785a56b" %}
+{% set version = "0.5.0.14" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
-
-source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ pipname[0] }}/{{ pipname }}/{{ pipname }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  name: '{{ name }}'
+  version: {{ version }}
 
 build:
-  number: 3
+  number: 0
   noarch: python
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
+
+source:
+  git_url: https://github.com/OLC-Bioinformatics/COWBAT.git
+  git_rev: master
 
 requirements:
   host:
-    - python >=3
+    - python=3.6.8=h0371630_0
   run:
     - python=3.6.8=h0371630_0
-    - geneseekr=0.3.6=py_1
-    - sipprverse=0.2.38=py_1
-    - genomeqaml=0.0.13=py_0
+    - sipprverse=0.2.45=py_1
     - sistr_cmd=1.0.2=py36_0
     - fastqc=0.11.8=1
     - ectyper=0.8.1=py_0
     - qualimap=2.2.2c=0
-    - skesa=2.3.0=h4ef8376_0
+    - skesa=2.3.0=hcfe0e84_1
     - clark=1.2.5.1=h6bb024c_0
-    - mob_suite=1.4.9.1=py_0
+    - mob_suite=2.0.0=py_0
+    - quast=5.0.2=py36pl526ha92aebf_0
+    - bedtools=2.17.0=0
+    - seqsero2=1.0.2=py_0
 
 test:
   imports:
@@ -41,6 +37,15 @@ test:
     - cowbat.get
     - cowbat.metagenomefilter
     - tests
+  source_files:
+    - tests
+  requires:
+    - pytest
+  commands:
+    - "assembly_pipeline.py -h"
+    - "assembly_typing.py -h"
+    - "pytest tests/test_imports.py -s -vv --maxfail=1"
+    - "pytest tests/test_pipeline.py -s -vv --maxfail=1"
 
 about:
   home: https://github.com/OLC-Bioinformatics/COWBAT

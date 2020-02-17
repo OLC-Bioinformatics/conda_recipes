@@ -1,34 +1,43 @@
 {% set name = "geneseekr" %}
-{% set version = "0.3.6" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "6d89e7f1ad5360030c2f79be05239bb89a346b2c4e75bdd2bfd715c8e9848394" %}
+{% set version = "0.4.0" %}
 
 package:
-  name: '{{ name|lower }}'
+  name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  git_url: https://github.com/OLC-Bioinformatics/GeneSeekr.git
+  git_rev: master
 
 build:
-  number: 1
+  number: 3
   noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   host:
-    - python >=3
+    - python=3.6.8=h0371630_0
   run:
     - python=3.6.8=h0371630_0
-    - blast=2.7.1=h4422958_6
-    - genemethods=0.0.0.10=py_0 
+    - blast=2.9.0=h20b68b9_1
+    - genemethods=0.0.0.26=py_0 
 
 test:
   imports:
     - tests
+  source_files:
+    - tests
+  requires:
+    - pytest
+  commands:
+    - "GeneSeekr -h"
+    - "GeneSeekr blastn -h"
+    - "pytest tests/test_imports.py -s -vv --maxfail=1"
+    - "pytest tests/test_blastn.py -s -vv --maxfail=1"
+    - "pytest tests/test_blastp.py -s -vv --maxfail=1"
+    - "pytest tests/test_blastx.py -s -vv --maxfail=1"
+    - "pytest tests/test_tblastn.py -s -vv --maxfail=1"
+    - "pytest tests/test_tblastx.py -s -vv --maxfail=1"
 
 about:
   home: https://github.com/OLC-Bioinformatics/GeneSeekr

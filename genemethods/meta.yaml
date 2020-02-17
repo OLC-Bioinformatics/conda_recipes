@@ -1,30 +1,25 @@
 {% set name = "genemethods" %}
-{% set version = "0.0.0.10" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "b561e482f299e4695d3c7d95060cd304c1bed85be6faf5f72034b2a55765984d" %}
+{% set version = "0.0.0.26" %}
 
 package:
-  name: '{{ name|lower }}'
+  name: '{{ name }}'
   version: '{{ version }}'
-
-source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
 
 build:
   number: 0
   noarch: python
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
+
+source:
+  git_url: https://github.com/adamkoziol/genemethods.git
+  git_rev: master
 
 requirements:
   host:
-    - python >=3
+    - python=3.6.8=h0371630_0
 
   run:
-    - olctools=1.1.1=py_0
-    - genewrappers=0.0.0.3=py_0
+    - genewrappers=0.0.0.5=py_2
     - python=3.6.8=h0371630_0
     - pysam=0.15.2=py36h4b7d16d_3
     - seaborn=0.9.0=py_0
@@ -46,6 +41,12 @@ test:
     - genemethods.sixteenS
     - genemethods.typingclasses
     - tests
+  requires:
+    - pytest
+  source_files:
+    - tests
+  commands:
+    - "pytest tests/test_imports.py -s -vv --maxfail=1"
 about:
   home: https://github.com/OLC-Bioinformatics/genemethods
   license: MIT

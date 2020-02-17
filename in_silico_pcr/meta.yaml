@@ -1,40 +1,41 @@
 {% set name = "in_silico_pcr" %}
 {% set version = "0.0.2.2" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "cccd2f3ccb53f2adbec7ef2d7ba4102faa57cb8dad8f5263dd86e298279e2536" %}
 
 package:
-  name: '{{ name|lower }}'
+  name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  git_url: https://github.com/adamkoziol/in_silico_PCR.git
+  git_rev: master
 
 build:
   noarch: python
-  number: 0
+  number: 15
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
 
 requirements:
   host:
-    - python >=3
+    - python=3.6.8=h0371630_0
   run:
     - python=3.6.8=h0371630_0
-    - bbmap=38.49=h14c3975_0
+    - bbmap=38.72=h516909a_0
     - spades=3.13.1=0
-    - blast=2.7.1=h4422958_6
-    - olctools=1.1.1=py_0
-    - genemethods=0.0.0.10=py_0
-    - validator_helper=0.0.6=py_0
+    - blast=2.9.0=h20b68b9_1
+    - genemethods=0.0.0.26=py_0
+    - validator_helper=0.0.9=py_2
 
 test:
   imports:
     - primer_finder
+  source_files:
+    - primer_finder/tests
+  requires:
+    - pytest
   commands:
     - primer_finder.py
+    - "pytest primer_finder/tests/test_legacy.py -s -vv --maxfail=1"
+    - "pytest primer_finder/tests/test_supremacy.py -s -vv --maxfail=1"
 
 about:
   home: https://github.com/adamkoziol/in_silico_PCR

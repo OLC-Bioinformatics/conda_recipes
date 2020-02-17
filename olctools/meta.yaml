@@ -1,17 +1,13 @@
 {% set name = "olctools" %}
-{% set version = "1.1.1" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "a4c48e7b69dc1912485f8280f9cb466bd927cf1e2c295e6338b51b3abc6668e7" %}
+{% set version = "1.1.8" %}
 
 package:
-  name: '{{ name|lower }}'
+  name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/O/OLCTools/OLCTools-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  git_url: https://github.com/lowandrew/OLCTools.git
+  git_rev: master
 
 build:
   noarch: python
@@ -20,15 +16,16 @@ build:
 
 requirements:
   host:
-    - python >=3
+    - python=3.6.8=h0371630_0
   run:
     - python=3.6.8=h0371630_0
     - pytest=4.5.0=py36_0
-    - biopython=1.72=py36_0
+    - biopython=1.73=py36h14c3975_0
     - rauth=0.7.3=py_0
     - click=7.0=py_0
     - xlsxwriter=1.1.8=py_0
-    - pandas=0.23.4=py36hf8a1672_0
+    - pandas=0.25.3=py36hb3f55d8_0
+    - xlrd=1.2.0=py_0
 
 test:
   imports:

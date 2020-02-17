@@ -1,8 +1,8 @@
 {% set name = "validator_helper" %}
-{% set version = "0.0.6" %}
+{% set version = "0.0.9" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "3893671cb5924364d44f52c5b3ab2a1044d95646209bf3b05e2bfc728501508c" %}
+{% set hash_value = "348f8fd13fd60eec5049c9f415ccc6f23d841011facb21cbd0bddf69386aeb78" %}
 
 package:
   name: '{{ name|lower }}'
@@ -14,17 +14,17 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 0
+  number: 2
   noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   host:
-    - python >=3
+    - python=3.6.8=h0371630_0
   run:
     - python=3.6.8=h0371630_0
-    - pandas=0.23.4=py36hf8a1672_0
-    - numpy=1.16.3=py36h99e49ec_0
+    - pandas=0.25.3=py36hb3f55d8_0
+    - numpy=1.17.3=py36h95a1406_0
     - pytest=4.5.0=py36_0
 
 test:
