@@ -1,12 +1,12 @@
 {% set name = "cowbat" %}
-{% set version = "0.5.0.14" %}
+{% set version = "0.5.0.17" %}
 
 package:
   name: '{{ name }}'
   version: {{ version }}
 
 build:
-  number: 0
+  number: 2
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -16,20 +16,21 @@ source:
 
 requirements:
   host:
-    - python=3.6.8=h0371630_0
+    - python=3.7.8=h6f2ec95_1_cpython
   run:
-    - python=3.6.8=h0371630_0
-    - sipprverse=0.2.45=py_1
-    - sistr_cmd=1.0.2=py36_0
-    - fastqc=0.11.8=1
-    - ectyper=0.8.1=py_0
-    - qualimap=2.2.2c=0
-    - skesa=2.3.0=hcfe0e84_1
-    - clark=1.2.5.1=h6bb024c_0
-    - mob_suite=2.0.0=py_0
-    - quast=5.0.2=py36pl526ha92aebf_0
-    - bedtools=2.17.0=0
-    - seqsero2=1.0.2=py_0
+    - bedtools=2.29.2=hc088bd4_0
+    - clark=1.2.6.1=hc9558a2_0
+    - ectyper=1.0.0=py_0
+    - fastqc=0.11.9=0
+    - mob_suite=3.0.0=py_1
+    - prodigal=2.6.3=h516909a_2
+    - python=3.7.8=h6f2ec95_1_cpython
+    - qualimap=2.2.2d=1
+    - quast=5.0.2=py37pl526hb5aa323_2
+    - seqsero2=1.1.1=py_olc
+    - sipprverse=0.2.48=py_1
+    - sistr_cmd=1.1.1=pyh864c0ab_1
+    - skesa=2.4.0=he1c1bb9_0
 
 test:
   imports:

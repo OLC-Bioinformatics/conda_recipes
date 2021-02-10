@@ -1,0 +1,51 @@
+{% set name = "SeqSero2" %}
+{% set version = "1.1.1" %}
+{% set sha256 = "425d9f38aa208e9284e83f1b4260b9ae6a950f90526fbb183fba77986ea3b7f8" %}
+
+package:
+  name: '{{ name | lower }}'
+  version: '{{ version }}'
+
+source:
+  url: https://github.com/denglab/SeqSero2/archive/v{{ version }}.tar.gz
+  sha256: '{{ sha256 }}'
+
+build:
+  number: 0
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+  string: py_olc
+
+requirements:
+  host:
+    - python=3.7.8=h6f2ec95_1_cpython
+    - pip=20.2.3=py_0
+  run:
+    - bedtools=2.29.2=hc088bd4_0
+    - blast=2.10.1=pl526he19e7b1_1
+    - biopython=1.78=py37h8f50634_0
+    - bwa=0.7.17=hed695b0_7
+    - python=3.7.8=h6f2ec95_1_cpython
+    - salmid=0.1.23=py_0
+    - samtools=1.11=h6270b1f_0
+    - spades=3.14.1=h2d02072_0
+    - sra-tools=2.10.0=pl526he1b5a44_0
+test:
+  commands:
+    - SeqSero2_package.py -h
+    - blastn -help
+    - SalmID.py -h
+
+about:
+  home: https://github.com/denglab/{{ name }}
+  license: GPLv2
+  license_family: GPL
+  license_file: 'LICENSE'
+  summary: Salmonella serotype prediction from genome sequencing data
+  dev_url: https://github.com/denglab/{{ name }}
+
+extra:
+  recipe-maintainers:
+    - LSTUGA
+  identifiers:
+    - doi:10.1128/AEM.01746-19

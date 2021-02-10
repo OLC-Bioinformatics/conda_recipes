@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 15
+  number: 20
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
 
 requirements:
@@ -19,11 +19,10 @@ requirements:
     - python=3.6.8=h0371630_0
   run:
     - python=3.6.8=h0371630_0
-    - bbmap=38.72=h516909a_0
-    - spades=3.13.1=0
+    - spades=3.14.0=h2d02072_0
     - blast=2.9.0=h20b68b9_1
-    - genemethods=0.0.0.26=py_0
-    - validator_helper=0.0.9=py_2
+    - genemethods=0.0.0.32=py_0
+    - validator_helper=0.0.9=py_3
 
 test:
   imports:

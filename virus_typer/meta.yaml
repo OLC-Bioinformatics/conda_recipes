@@ -1,0 +1,41 @@
+{% set name = "virus_typer" %}
+{% set version = "0.0.0.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e57aab26a79507a39fc6673b5fa01b4a3db1bcdd9f3dd3ba6f2b4ea98a5a6f18
+
+build:
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python >=3
+  run:
+    - python=3.6.8=h0371630_0
+    - biopython=1.72=py36_0
+    - cutadapt=2.4=py36h14c3975_0
+    - olctools=1.1.1=py_0 
+
+test:
+  imports:
+    - virustyper
+
+about:
+  home: https://github.com/adamkoziol/virustyper
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: Perform virus typing on Norovirus genogroups I and II, as well as Hepatitis A
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - adamkoziol

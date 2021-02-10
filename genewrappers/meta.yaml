@@ -1,29 +1,29 @@
 {% set name = "genewrappers" %}
-{% set version = "0.0.0.6" %}
+{% set version = "0.0.0.9" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 build:
-  number: 0
+  number: 4
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
 
 source:
-  git_url: https://github.com/adamkoziol/genewrappers.git
+  git_url: https://github.com/OLC-LOC-Bioinformatics/genewrappers.git
   git_rev: master
 
 requirements:
   host:
-    - python=3.6.8=h0371630_0
+    - python=3.7.8=h6f2ec95_1_cpython
   run:
-    - python=3.6.8=h0371630_0
-    - olctools=1.1.8=py_0
-    - illumina-interop=1.1.8=hfc679d8_0
-    - bbmap=38.72=h516909a_0
-    - mash=2.2.2=h3d38be6_1
-    - sra-tools=2.9.6=hf484d3e_0
+    - bbmap=38.86=h1296035_0
+    - illumina-interop=1.1.12=he1b5a44_0
+    - mash=2.2.2=ha61e061_2
+    - python=3.7.8=h6f2ec95_1_cpython
+    - olctools=1.2.1=py_3
+    - sra-tools=2.10.0=pl526he1b5a44_0
 
 test:
   imports:
@@ -32,7 +32,7 @@ test:
     - tests
 
 about:
-  home: https://github.com/adamkoziol/genewrappers
+  home: https://github.com/OLC-LOC-Bioinformatics/genewrappers
   license: MIT
   license_family: MIT
   license_file: 

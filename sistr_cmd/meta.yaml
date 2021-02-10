@@ -1,0 +1,42 @@
+{% set name = "sistr_cmd" %}
+{% set version = "1.1.0" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 41f6d45af60014e9cdb4f768c9fb8f29a7bcf47e2d6aab5b2572f76757d707c4
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-deps -vv
+  string: py_olc
+
+requirements:
+  host:
+    - python=3.6.8=h0371630_0
+    - pip=20.0.2=py_2
+  run:
+    - python=3.6.8=h0371630_0
+    - numpy=1.18.1=py36h95a1406_0
+    - pandas=1.0.1=py36hb3f55d8_0
+    - pytables=3.6.1=py36h9f153d1_1
+    - pycurl=7.43.0.5=py36h16ce93b_0
+    - scipy=1.4.1=py36h921218d_0
+    - blast=2.9.0=h20b68b9_1
+    - mafft=7.455=h516909a_0
+    - mash=2.2.2=h3d38be6_1
+    - python-dateutil=2.8.1=py_0
+
+test:
+  commands:
+    - sistr -h
+    - sistr -V
+
+about:
+  home: https://github.com/peterk87/sistr_cmd/
+  license: Apache
+  summary: 'Salmonella In Silico Typing Resource (SISTR) commandline tool for serovar prediction. This version has requirements pinned to be compatible with the CFIA COWBAT pipeline. Please use the bioconda version.'

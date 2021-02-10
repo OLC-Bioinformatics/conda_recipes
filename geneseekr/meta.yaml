@@ -1,26 +1,26 @@
 {% set name = "geneseekr" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.2" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
+build:
+  number: 10
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
 source:
   git_url: https://github.com/OLC-Bioinformatics/GeneSeekr.git
   git_rev: master
 
-build:
-  number: 3
-  noarch: python
-  script: python setup.py install --single-version-externally-managed --record=record.txt
-
 requirements:
   host:
-    - python=3.6.8=h0371630_0
+    - python=3.7.8=h6f2ec95_1_cpython
   run:
-    - python=3.6.8=h0371630_0
-    - blast=2.9.0=h20b68b9_1
-    - genemethods=0.0.0.26=py_0 
+    - blast=2.10.1=pl526he19e7b1_1
+    - genemethods=0.0.0.42=py_0
+    - python=3.7.8=h6f2ec95_1_cpython
 
 test:
   imports:
