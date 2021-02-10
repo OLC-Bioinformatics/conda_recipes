@@ -11,18 +11,18 @@ source:
 
 build:
   noarch: python
-  number: 20
+  number: 21
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
 
 requirements:
   host:
-    - python=3.6.8=h0371630_0
+    - python=3.7.8=h6f2ec95_1_cpython
   run:
-    - python=3.6.8=h0371630_0
-    - spades=3.14.0=h2d02072_0
-    - blast=2.9.0=h20b68b9_1
-    - genemethods=0.0.0.32=py_0
-    - validator_helper=0.0.9=py_3
+    - python=3.7.8=h6f2ec95_1_cpython
+    - spades=3.14.1=h2d02072_0
+    - blast=2.10.1=pl526he19e7b1_1
+    - genemethods=0.0.0.42=py_0
+    - validator_helper=0.0.10=py_4
 
 test:
   imports:
