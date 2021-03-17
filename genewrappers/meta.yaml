@@ -6,7 +6,7 @@ package:
   version: '{{ version }}'
 
 build:
-  number: 4
+  number: 5
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -22,7 +22,7 @@ requirements:
     - illumina-interop=1.1.12=he1b5a44_0
     - mash=2.2.2=ha61e061_2
     - python=3.7.8=h6f2ec95_1_cpython
-    - olctools=1.2.1=py_3
+    - olctools=1.2.2=py_0
     - sra-tools=2.10.0=pl526he1b5a44_0
 
 test:

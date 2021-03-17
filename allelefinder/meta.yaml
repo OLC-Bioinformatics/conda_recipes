@@ -1,0 +1,42 @@
+{% set name = "allelefinder" %}
+{% set version = "0.0.1" %}
+
+package:
+  name: '{{ name }}'
+  version: '{{ version }}'
+
+build:
+  number: 0
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+source:
+  git_url: https://github.com/OLC-Bioinformatics/AlleleFinder.git
+  git_rev: master
+
+requirements:
+  host:
+    - python=3.7.8=h6f2ec95_1_cpython
+  run:
+    - geneseekr=0.4.2=py_11
+    - python=3.7.8=h6f2ec95_1_cpython
+
+test:
+  imports:
+    - allele_tools
+  commands:
+    - "allele_finder.py -h"
+    - "allele_profiler.py -h"
+
+about:
+  home: https://github.com/OLC-Bioinformatics/AlleleFinder
+  license: MIT
+  license_family: MIT
+  license_file: ''
+  summary: Allele Tools
+  description: ""
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: 'adamkoziol'

@@ -1,0 +1,63 @@
+{% set name = "cowsnphr" %}
+{% set version = "0.0.30" %}
+
+package:
+  name: '{{ name }}'
+  version: '{{ version }}'
+
+source:
+  git_url: https://github.com/OLC-LOC-Bioinformatics/COWSNPhR.git
+  git_rev: master
+
+build:
+  number: 0
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python=3.6.8=h0371630_0
+  run:
+    - bbmap=38.86=h1296035_0
+    - bowtie2=2.4.1=py36h5202f60_3
+    - ete3=3.1.1=py36_0
+    - fasttree=2.1.10=h516909a_4
+    - mash=2.2.2=ha61e061_2
+    - mummer=3.23=pl526he1b5a44_11
+    - olctools=1.1.9=py_1
+    - prokka=1.14.6=pl526_0
+    - python=3.6.8=h0371630_0
+    - quast=5.0.2=py36pl526h955c1b8_2
+    - samtools=1.10=h2e538c0_3
+    - skesa=2.4.0=he1c1bb9_0
+
+test:
+  imports:
+    - cowsnphr_src
+    - cowsnphr_src.vcf_methods
+    - cowsnphr_src.tree_methods
+ #   - tests
+ # source_files:
+ #   - tests
+ #   - dependencies
+ # requires:
+ #   - pytest
+  commands:
+    - "python -m cowsnphr_src.cowsnphr -h"
+    - "cowsnphr -h"
+    - "cowsnphr.py -h"
+    #- "python -m pytest tests/test_vcf.py -s -vv --maxfail=1"
+    #- "python -m pytest tests/test_tree.py -s -vv --maxfail=1"
+
+about:
+  home: https://github.com/OLC-LOC-Bioinformatics/COWSNPhR
+  license: MIT
+  license_family: MIT
+  license_file: ''
+  summary: Single Nucleotide Variant Calling Pipeline
+  description: "A pipeline for the detection of Single Nucleotide Variants"
+  doc_url: 'https://OLC-LOC-Bioinformatics.github.io/COWSNPhR/'
+  dev_url: ''
+
+extra:
+  recipe-maintainers: 'adamkoziol'

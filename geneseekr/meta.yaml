@@ -6,7 +6,7 @@ package:
   version: '{{ version }}'
 
 build:
-  number: 10
+  number: 11
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -19,7 +19,7 @@ requirements:
     - python=3.7.8=h6f2ec95_1_cpython
   run:
     - blast=2.10.1=pl526he19e7b1_1
-    - genemethods=0.0.0.42=py_0
+    - genemethods=0.0.0.44=py_0
     - python=3.7.8=h6f2ec95_1_cpython
 
 test:
