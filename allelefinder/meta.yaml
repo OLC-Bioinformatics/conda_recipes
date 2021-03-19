@@ -6,7 +6,7 @@ package:
   version: '{{ version }}'
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -18,7 +18,7 @@ requirements:
   host:
     - python=3.7.8=h6f2ec95_1_cpython
   run:
-    - geneseekr=0.4.2=py_11
+    - geneseekr=0.4.2=py_12
     - python=3.7.8=h6f2ec95_1_cpython
 
 test:
