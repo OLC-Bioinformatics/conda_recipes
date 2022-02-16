@@ -1,5 +1,5 @@
 {% set name = "genemethods" %}
-{% set version = "0.0.0.45" %}
+{% set version = "0.0.0.47" %}
 
 package:
   name: '{{ name }}'
@@ -18,7 +18,7 @@ requirements:
   host:
     - python=3.7.8=h6f2ec95_1_cpython
   run:
-    - genewrappers=0.0.0.9=py_5
+    - genewrappers=0.0.0.9=py_6
     - psutil=5.7.2=py37hb5d75c8_1
     - pysam=0.16.0.1=py37hc334e0b_1
     - python=3.7.8=h6f2ec95_1_cpython
