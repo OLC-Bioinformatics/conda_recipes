@@ -1,0 +1,77 @@
+{% set name = "azure_storage" %}
+{% set version = "0.0.1" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+build:
+  number: 0
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+source:
+  git_url: https://github.com/OLC-LOC-Bioinformatics/AzureStorage
+  git_rev: main
+
+requirements:
+  host:
+    - python=3.8.5=h7579374_1
+  run:
+    - azure-core==1.22.0
+    - azure-storage-blob==12.9.0
+    - coloredlogs=15.0.1=pyhd8ed1ab_3
+    - keyring=23.4.0=py38h578d9bd_2
+    - keyrings.alt=4.0.2=pyhd3deb0d_0
+    - mkdocs=1.2.3=pyhd8ed1ab_0
+    - mkdocs-bootswatch=1.1=py_0
+    - pandas=1.1.3=py38he6710b0_0
+    - pytest=7.0.1=py38h578d9bd_0
+    - pytest-cov=3.0.0=pyhd8ed1ab_0
+    - termcolor=1.1.0=py_2
+
+test:
+  imports:
+    - azure_storage
+    - azure_storage.azure_credentials
+    - azure_storage.azure_upload
+    - azure_storage.azure_sas
+    - azure_storage.azure_move
+    - azure_storage.azure_download
+    - azure_storage.azure_tier
+    - azure_storage.azure_delete
+    - azure_storage.azure_automate
+    - azure_storage.azure_list
+    - azure_storage.methods
+    - tests
+  source_files:
+    - tests
+    - tests/files
+    - tests/files/batch
+    - tests/files/folder
+    - tests/files/folder_2
+  requires:
+    - pytest
+  commands:
+    - 'AzureCredentials -h'
+    - 'AzureUpload -h'
+    - 'AzureSAS -h'
+    - 'AzureMove -h'
+    - 'AzureDownload -h'
+    - 'AzureTier -h'
+    - 'AzureDelete -h'
+    - 'AzureAutomate -h'
+    - 'AzureList -h'
+    - 'python -m pytest tests/ -s -vvv --cov=azure_storage'
+
+about:
+  home: https://github.com/OLC-LOC-Bioinformatics/AzureStorage
+  license: MIT
+  license_family: MIT
+  summary: CFIA OLC Azure storage scripts
+  description: CFIA OLC Azure storage scripts
+  doc_url: https://OLC-Bioinformatics.github.io/AzureStorage
+  dev_url: https://github.com/OLC-LOC-Bioinformatics/AzureStorage
+
+extra:
+  recipe-maintainers: 'adamkoziol'
