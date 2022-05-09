@@ -1,0 +1,48 @@
+{% set name = 'amr_summary' %}
+{% set version = '0.0.1' %}
+
+package:
+  name: '{{ name }}'
+  version: '{{ version }}'
+
+source:
+  url: https://files.pythonhosted.org/packages/45/66/2a16b6872d37d2d70f1097f46cc04fbc9f78758a77f53fa2ff00733cef48/AMR_Summary-0.0.1.tar.gz
+  sha256: d3d8191a0e2dbc7d6bad8f3deecf3f50d98ad6ba5cc2ecac25ee613af051c314
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python=3.9.12=h9a8a25e_1_cpython
+  run:
+    - geneseekr=0.5.0=py_2
+    - mob_suite=3.0.3=py_olc
+    - python=3.9.12=h9a8a25e_1_cpython
+    - pytest-cov=3.0.0=pyhd8ed1ab_0
+
+#test:
+#  imports:
+#    - amr_summary
+#    - amr_summary.amr_summary
+#    - amr_summary.version
+#  source_files:
+#    - tests
+#    - tests/files
+#  requires:
+#    - pytest
+#  commands:
+#    - 'AMR_Summary -h'
+#    - 'python -m pytest tests/test_amr_summary.py -s -vvv --cov=amr_summary'
+
+about:
+  home: https://github.com/OLC-Bioinformatics/AMR_Summary
+  license: MIT
+  license_family: MIT
+  summary: 'AMR Summary: a pipeline to identify AMR resistance genes located on plasmids by combining ResFinder and MOB-recon'
+  description: 'AMR Summary: a pipeline to identify AMR resistance genes located on plasmids by combining ResFinder and MOB-recon'
+
+extra:
+  recipe-maintainers: 'adamkoziol'

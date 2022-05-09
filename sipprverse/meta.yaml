@@ -1,30 +1,30 @@
 {% set name = "sipprverse" %}
-{% set version = "0.2.48" %}
+{% set version = "0.2.49" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
-build:
-  number: 1
-  noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-
 source:
-  git_url: https://github.com/OLC-Bioinformatics/sipprverse.git
-  git_rev: master
+  url: https://files.pythonhosted.org/packages/19/07/999d822106a465d33d46898e13d3267ba2c9274b39d476f7b9eb10015e96/sipprverse-0.2.49.tar.gz
+  sha256: 197d4ad68fb8ae401fa07ce653c2bb28198c3af92e6d930f89f895f84fdd410f
+
+build:
+  noarch: python
+  number: 2
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python=3.7.8=h6f2ec95_1_cpython
+    - python=3.9.12=h9a8a25e_1_cpython
   run:
     - bcl2fastq=2.20=0
-    - bowtie2=2.4.1=py37h8270d21_3
+    - bowtie2=2.4.5=py39hd2f7db1_2
     - confindr=0.7.4=py_olc
-    - geneseekr=0.4.2=py_10
-    - python=3.7.8=h6f2ec95_1_cpython
-    - seqtk=1.3=hed695b0_2
-    - validator_helper=0.0.10=py_4
+    - geneseekr=0.5.0=py_4
+    - python=3.9.12=h9a8a25e_1_cpython
+    - seqtk=1.3=h7132678_4
+    - validator_helper=0.0.10=py_5
 
 test:
   imports:

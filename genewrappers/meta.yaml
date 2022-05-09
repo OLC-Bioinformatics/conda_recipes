@@ -1,29 +1,30 @@
 {% set name = "genewrappers" %}
-{% set version = "0.0.0.9" %}
+{% set version = "0.0.0.10" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
-build:
-  number: 6
-  noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-
 source:
-  git_url: https://github.com/OLC-LOC-Bioinformatics/genewrappers.git
-  git_rev: master
+  url: https://files.pythonhosted.org/packages/6c/47/266ced1e16fd7b6fcaeadbcd4237e453c519f7c92590efe3a02429c9ede9/genewrappers-0.0.0.10.tar.gz
+  sha256: af63a1ed6f3d3d1d6d1418a4a174a6bfeed01e411a05ac5db424d1446ab6b1e7
+
+build:
+  noarch: python
+  number: 4
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python=3.7.8=h6f2ec95_1_cpython
+    - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - bbmap=38.86=h1296035_0
-    - illumina-interop=1.1.12=he1b5a44_0
-    - mash=2.2.2=ha61e061_2
-    - python=3.7.8=h6f2ec95_1_cpython
-    - olctools=1.2.3=py_0
-    - sra-tools=2.10.0=pl526he1b5a44_0
+    - bbmap=38.96=h5c4e2a8_1
+    - illumina-interop=1.1.23=h87f3376_1
+    - mash=2.3=ha9a2dd8_3
+    - python=3.9.12=h9a8a25e_1_cpython
+    - olctools=1.2.7=py_0
+    - sra-tools=2.8.0=0
+#    - sra-tools=2.11.0=pl5321ha49a11a_3
 
 test:
   imports:
@@ -35,10 +36,7 @@ about:
   home: https://github.com/OLC-LOC-Bioinformatics/genewrappers
   license: MIT
   license_family: MIT
-  license_file: 
   summary: Python wrappers for bioinformatic tools
-  doc_url: 
-  dev_url: 
 
 extra:
   recipe-maintainers:

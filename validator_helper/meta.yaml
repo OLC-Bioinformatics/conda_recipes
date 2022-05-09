@@ -6,7 +6,7 @@ package:
   version: '{{ version }}'
 
 build:
-  number: 4
+  number: 5
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -16,12 +16,12 @@ source:
 
 requirements:
   host:
-    - python=3.7.8=h6f2ec95_1_cpython
+    - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - numpy=1.19.1=py37h7ea13bd_2
-    - pandas=1.0.5=py37h0da4684_0
-    - python=3.7.8=h6f2ec95_1_cpython
-    - pytest=6.1.1=py37hc8dfbb8_0
+    - numpy=1.22.3=py39h18676bf_2
+    - pandas=1.4.2=py39h1832856_1
+    - python=3.9.12=h9a8a25e_1_cpython
+    - pytest=7.1.1=py39hf3d152e_1
 
 test:
   imports:

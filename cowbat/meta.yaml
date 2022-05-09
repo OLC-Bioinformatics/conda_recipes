@@ -1,36 +1,35 @@
 {% set name = "cowbat" %}
-{% set version = "0.5.0.17" %}
+{% set version = "0.5.0.20" %}
 
 package:
   name: '{{ name }}'
-  version: {{ version }}
-
-build:
-  number: 2
-  noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  version: '{{ version }}'
 
 source:
-  git_url: https://github.com/OLC-Bioinformatics/COWBAT.git
-  git_rev: master
+  url: https://files.pythonhosted.org/packages/d3/62/14ed973359bdbdd9ed195f2b142edb15ffb8ce7cc07ece352d2bb27ede2d/COWBAT-0.5.0.20.tar.gz
+  sha256: d71ecde5b6f29e8e6613a11bd3ef4326df4816e726f5eeb21203304f48c90d5f
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python=3.7.8=h6f2ec95_1_cpython
+    - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - bedtools=2.29.2=hc088bd4_0
-    - clark=1.2.6.1=hc9558a2_0
-    - ectyper=1.0.0=py_0
-    - fastqc=0.11.9=0
-    - mob_suite=3.0.0=py_1
-    - prodigal=2.6.3=h516909a_2
-    - python=3.7.8=h6f2ec95_1_cpython
-    - qualimap=2.2.2d=1
-    - quast=5.0.2=py37pl526hb5aa323_2
-    - seqsero2=1.1.1=py_olc
-    - sipprverse=0.2.48=py_1
+    - clark=1.2.6.1=h9f5acd7_2
+    - ectyper=1.0.0=pyhdfd78af_1
+    - fastqc=0.11.9=hdfd78af_1
+    - mob_suite=3.0.3=py_olc
+    - prodigal=2.6.3=hec16e2b_4
+    - python=3.9.12=h9a8a25e_1_cpython
+    - qualimap=2.2.2a=1
+    - quast=5.0.2=py_olc
+    - seqsero2=1.2.1=py_olc
+    - sipprverse=0.2.49=py_2
     - sistr_cmd=1.1.1=pyh864c0ab_1
-    - skesa=2.4.0=he1c1bb9_0
+    - skesa=2.1=0
 
 test:
   imports:
@@ -46,7 +45,7 @@ test:
     - "assembly_pipeline.py -h"
     - "assembly_typing.py -h"
     - "pytest tests/test_imports.py -s -vv --maxfail=1"
-    - "pytest tests/test_pipeline.py -s -vv --maxfail=1"
+#    - "pytest tests/test_pipeline.py -s -vv --maxfail=1"
 
 about:
   home: https://github.com/OLC-Bioinformatics/COWBAT

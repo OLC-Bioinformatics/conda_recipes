@@ -1,6 +1,6 @@
 {% set name = "SeqSero2" %}
-{% set version = "1.1.1" %}
-{% set sha256 = "425d9f38aa208e9284e83f1b4260b9ae6a950f90526fbb183fba77986ea3b7f8" %}
+{% set version = "1.2.1" %}
+{% set sha256 = "911b3f31ed35b7ac421001ab739782895c479f1e3a733ad17210069c8b7011ff" %}
 
 package:
   name: '{{ name | lower }}'
@@ -18,18 +18,18 @@ build:
 
 requirements:
   host:
-    - python=3.7.8=h6f2ec95_1_cpython
-    - pip=20.2.3=py_0
+    - python=3.9.12=h9a8a25e_1_cpython
+    - pip=22.0.4=pyhd8ed1ab_0
   run:
-    - bedtools=2.29.2=hc088bd4_0
-    - blast=2.10.1=pl526he19e7b1_1
-    - biopython=1.78=py37h8f50634_0
-    - bwa=0.7.17=hed695b0_7
-    - python=3.7.8=h6f2ec95_1_cpython
+    - bedtools=2.30.0=h468198e_3
+    - blast=2.12.0=hf3cf87c_4
+    - biopython=1.79=py39h3811e60_1
+    - bwa=0.7.17=h7132678_9
+    - python=3.9.12=h9a8a25e_1_cpython
     - salmid=0.1.23=py_0
-    - samtools=1.11=h6270b1f_0
-    - spades=3.14.1=h2d02072_0
-    - sra-tools=2.10.0=pl526he1b5a44_0
+    - samtools=1.15.1=h1170115_0
+    - spades=3.13.0=0
+    - sra-tools=2.8.0=0
 test:
   commands:
     - SeqSero2_package.py -h
