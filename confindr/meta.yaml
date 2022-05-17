@@ -11,9 +11,8 @@ source:
 
 build:
   noarch: python
-  number: '3'
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
-  string: py_olc
+  string: py_olc_3
 
 requirements:
   host:
