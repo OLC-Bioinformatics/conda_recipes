@@ -1,27 +1,18 @@
-{% set version = "5.0.2" %}
-{% set hash = "2b31aac010f5c04d5367f1bf718516ae" %}
+{% set name = "quast" %}
+{% set version = "5.1.0" %}
 
 package:
-  name: quast
-  version: {{ version }}
-
-build:
-  number: 2
-  # Needs to adjust cgi.escape to be html.escape for Python 3.8.
-  # (cgi.escape is deprecated since 3.2)
-  # AttributeError: module 'cgi' has no attribute 'escape'
-  skip: True  # [py>=38]
-  string: py_olc
+  name: '{{ name }}'
+  version: '{{ version }}'
 
 source:
-  url:
-    - https://github.com/ablab/quast/releases/download/quast_{{ version }}/quast-{{ version }}.tar.gz
-    - http://downloads.sourceforge.net/project/quast/quast-{{ version }}.tar.gz
-  md5: {{ hash }}
-#  patches:
-#    - genemark-issue_disable-and-exclude-from-package.patch
-#    - skip-glimmer-in-test.patch
-#    - remove-explicit-dependencies-from-setup-py.patch
+  git_url: https://github.com/ablab/quast.git
+  git_rev: master
+
+build:
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
+  string: py_olc_3
 
 requirements:
   build:
@@ -34,7 +25,7 @@ requirements:
     - matplotlib-base=3.5.1=py39h2fa2bec_0
     - minimap2=2.24=h7132678_1
     - perl=5.32.1=2_h7f98852_perl5
-    - pip=20.2.3=py_0
+    - pip=22.0.4=pyhd8ed1ab_0
     - python=3.9.12=h9a8a25e_1_cpython
     - setuptools=62.1.0=py39hf3d152e_0
     - simplejson=3.17.6=py39hb9d737c_1
