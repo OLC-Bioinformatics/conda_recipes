@@ -1,13 +1,13 @@
 {% set name = "genemethods" %}
-{% set version = "0.0.0.54" %}
+{% set version = "0.0.0.55" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/1c/1d/e2d4c86f17c86de33bfdcd7a8b3f033851147fef89335e99c3501d64325b/genemethods-0.0.0.54.tar.gz
-  sha256: 657902e6fc936a927bbeda93193564c0b966c4a578129ca2afc7ee949660f7a1
+  url: https://files.pythonhosted.org/packages/11/00/af9b2832f7e849f9c7a4f8d14ace5b18b1fa52b426739f813a2e5475da32/genemethods-0.0.0.55.tar.gz
+  sha256: 0cef30951bf4ca9f9226b48d97c165493e1573dde9f0530930d46f16a07097a6
 
 build:
   noarch: python
