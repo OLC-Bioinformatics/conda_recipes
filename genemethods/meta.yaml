@@ -1,13 +1,13 @@
 {% set name = "genemethods" %}
-{% set version = "0.0.0.52" %}
+{% set version = "0.0.0.54" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/e1/78/dfced944c416128f0e8b01953c08d6c2e83ed4cba1cdb985455fe4ec6bda/genemethods-0.0.0.52.tar.gz
-  sha256: c423899b8e0a5f1611d679ae5b476890da6995cd9e53acd8a8119a4bdad32410
+  url: https://files.pythonhosted.org/packages/1c/1d/e2d4c86f17c86de33bfdcd7a8b3f033851147fef89335e99c3501d64325b/genemethods-0.0.0.54.tar.gz
+  sha256: 657902e6fc936a927bbeda93193564c0b966c4a578129ca2afc7ee949660f7a1
 
 build:
   noarch: python
@@ -18,7 +18,7 @@ requirements:
   host:
     - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - genewrappers=0.0.0.10=py_4
+    - genewrappers=0.0.0.10=py_8
     - psutil=5.9.0=py39hb9d737c_1
     - pysam=0.19.0=py39h5030a8b_0
     - python=3.9.12=h9a8a25e_1_cpython
