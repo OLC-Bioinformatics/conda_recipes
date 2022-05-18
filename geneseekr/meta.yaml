@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 7
+  number: 8
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
     - python=3.9.12=h9a8a25e_1_cpython
   run:
     - blast=2.12.0=hf3cf87c_4
-    - genemethods=0.0.0.55=py_0
+    - genemethods=0.0.0.56=py_0
     - python=3.9.12=h9a8a25e_1_cpython
 
 #test:
