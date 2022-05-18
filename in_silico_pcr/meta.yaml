@@ -1,29 +1,29 @@
 {% set name = "in_silico_pcr" %}
-{% set version = "0.0.2.3" %}
+{% set version = "0.0.2.4" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
-build:
-  number: 0
-  noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-
 source:
-  git_url: https://github.com/adamkoziol/in_silico_PCR.git
-  git_rev: master
+  url: https://files.pythonhosted.org/packages/94/60/30d49f1c071d5815c3a20494d88c6ba1738c95e21979e2636d3396248ea0/in_silico_pcr-0.0.2.4.tar.gz
+  sha256: e24b255d9372d7e79940d4e1c02321b4b68934cd4aed630481696c4329fd1703
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python=3.7.8=h6f2ec95_1_cpython
+    - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - blast=2.10.1=pl526he19e7b1_1
-    - exonerate=2.4.0=haf93ef1_3
-    - genemethods=0.0.0.47=py_0
-    - python=3.7.8=h6f2ec95_1_cpython
-    - spades=3.15.0=h633aebb_0
-    - validator_helper=0.0.10=py_4
+    - blast=2.12.0=hf3cf87c_4
+    - exonerate=2.4.0=h09da616_5
+    - genemethods=0.0.0.57=py_0
+    - python=3.9.12=h9a8a25e_1_cpython
+    - spades=3.13.0=0
+    - validator_helper=0.0.10=py_5
 
 test:
   imports:
