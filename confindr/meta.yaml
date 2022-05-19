@@ -7,12 +7,12 @@ package:
 
 source:
   git_url: https://github.com/OLC-Bioinformatics/ConFindr.git
-  git_rev: master
+  git_rev: main
 
 build:
   noarch: python
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
-  string: py_olc_3
+  string: py_olc_4
 
 requirements:
   host:
