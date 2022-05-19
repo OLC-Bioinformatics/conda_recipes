@@ -1,17 +1,17 @@
 {% set name = "cowbat" %}
-{% set version = "0.5.0.20" %}
+{% set version = "0.5.0.22" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/d3/62/14ed973359bdbdd9ed195f2b142edb15ffb8ce7cc07ece352d2bb27ede2d/COWBAT-0.5.0.20.tar.gz
-  sha256: d71ecde5b6f29e8e6613a11bd3ef4326df4816e726f5eeb21203304f48c90d5f
+  url: https://files.pythonhosted.org/packages/3b/5e/cee889da9e8e9aa5331163f2f55928d750fdf0007ef9de8b707c5f25531d/COWBAT-0.5.0.22.tar.gz
+  sha256: d5fc3b474dee0777de59fb9f908eb5d1c03a388efb234eefd88674bcf0a30aff
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -21,14 +21,15 @@ requirements:
     - clark=1.2.6.1=h9f5acd7_2
     - ectyper=1.0.0=pyhdfd78af_1
     - fastqc=0.11.9=hdfd78af_1
+    - in_silico_pcr=0.0.2.4=py_0
     - mob_suite=3.0.3=py_olc
     - prodigal=2.6.3=hec16e2b_4
     - python=3.9.12=h9a8a25e_1_cpython
-    - qualimap=2.2.2a=1
-    - quast=5.0.2=py_olc
+    - qualimap=2.2.2d=hdfd78af_2
+    - quast=5.1.0=py_olc_3
     - seqsero2=1.2.1=py_olc
-    - sipprverse=0.2.49=py_2
-    - sistr_cmd=1.1.1=pyh864c0ab_1
+    - sipprverse=0.2.49=py_8
+    - sistr_cmd=1.1.3=py_olc_0
     - skesa=2.1=0
 
 test:
