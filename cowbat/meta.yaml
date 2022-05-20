@@ -1,17 +1,17 @@
 {% set name = "cowbat" %}
-{% set version = "0.5.0.22" %}
+{% set version = "0.5.0.23" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/3b/5e/cee889da9e8e9aa5331163f2f55928d750fdf0007ef9de8b707c5f25531d/COWBAT-0.5.0.22.tar.gz
-  sha256: d5fc3b474dee0777de59fb9f908eb5d1c03a388efb234eefd88674bcf0a30aff
+  url: https://files.pythonhosted.org/packages/be/4c/c0af77f8daab2170a42be71c5a7c07e3722c47201cbaeb869e19ce2e85bd/COWBAT-0.5.0.23.tar.gz
+  sha256: 92ff7d47e56eaa2e3887fddb1c94b3d78855dd0c8f665a054231c46a9604b1b3
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -28,7 +28,7 @@ requirements:
     - qualimap=2.2.2d=hdfd78af_2
     - quast=5.1.0=py_olc_3
     - seqsero2=1.2.1=py_olc
-    - sipprverse=0.2.49=py_8
+    - sipprverse=0.2.49=py_9
     - sistr_cmd=1.1.3=py_olc_0
     - skesa=2.1=0
 
