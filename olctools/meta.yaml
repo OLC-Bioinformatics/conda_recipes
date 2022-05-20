@@ -1,13 +1,13 @@
 {% set name = "olctools" %}
-{% set version = "1.3.1" %}
+{% set version = "1.3.2" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/4e/96/0bd0b4f3d0b0ca483a0ccaf13d297971407126863b1e0c62de5feb1f17f2/OLCTools-1.3.1.tar.gz
-  sha256: f3b6d129ddf6ae240aa0b06addfe5c0261ae31919dd641bcf9c8b6f08cbd2cd4
+  url: https://files.pythonhosted.org/packages/b0/16/3379f9305c5650e0e30bcadbfba8e102b7f74e2dbd6b9a6e5c3a80646801/OLCTools-1.3.2.tar.gz
+  sha256: 66d4c1882d760e80ae6f0bd19833b92fc193b64c0e9b050854ffb64015d92819
 
 build:
   noarch: python
