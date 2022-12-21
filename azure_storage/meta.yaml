@@ -1,5 +1,5 @@
 {% set name = "azure_storage" %}
-{% set version = "0.0.3" %}
+{% set version = "0.0.4" %}
 
 package:
   name: {{ name }}
@@ -62,7 +62,7 @@ test:
     - 'AzureDelete -h'
     - 'AzureAutomate -h'
     - 'AzureList -h'
-    - 'python -m pytest tests/ -s -vvv --cov=azure_storage'
+#    - 'python -m pytest tests/ -s -vvv --cov=azure_storage'
 
 about:
   home: https://github.com/OLC-LOC-Bioinformatics/AzureStorage
