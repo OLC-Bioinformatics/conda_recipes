@@ -1,17 +1,17 @@
-{% set name = "in_silico_pcr" %}
-{% set version = "0.0.2.4" %}
+{% set name = 'in_silico_pcr' %}
+{% set version = '0.0.3.1' %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/94/60/30d49f1c071d5815c3a20494d88c6ba1738c95e21979e2636d3396248ea0/in_silico_pcr-0.0.2.4.tar.gz
-  sha256: e24b255d9372d7e79940d4e1c02321b4b68934cd4aed630481696c4329fd1703
+  url: https://files.pythonhosted.org/packages/1a/15/25200a3bfb7465d7a250d744d51de9ebeca3cb929c96f70e88b57d4b6bef/in_silico_pcr-0.0.3.1.tar.gz
+  sha256: 62eda7635049ba73530fba4c18db8a038cc3509371f17901523df88d9a4046d2
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -20,7 +20,7 @@ requirements:
   run:
     - blast=2.12.0=hf3cf87c_4
     - exonerate=2.4.0=h09da616_5
-    - genemethods=0.0.0.57=py_2
+    - genemethods=0.0.0.60=py_0
     - python=3.9.12=h9a8a25e_1_cpython
     - spades=3.13.0=0
     - validator_helper=0.0.10=py_5

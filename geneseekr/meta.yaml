@@ -11,15 +11,15 @@ source:
 
 build:
   noarch: python
-  number: 11
+  number: 12
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
     - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - blast=2.12.0=hf3cf87c_4
-    - genemethods=0.0.0.57=py_2
+    - blast=2.13.0=hf3cf87c_0
+    - genemethods=0.0.0.61=py_1
     - python=3.9.12=h9a8a25e_1_cpython
 
 #test:

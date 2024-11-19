@@ -1,5 +1,5 @@
 {% set name = "confindr" %}
-{% set version = "0.7.4" %}
+{% set version = "0.8.1" %}
 
 package:
   name: '{{ name }}'
@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
-  string: py_olc_4
+  string: py_olc_0
 
 requirements:
   host:

@@ -1,0 +1,41 @@
+{% set name="skesa" %}
+{% set version="2.4.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  # url: https://github.com/ncbi/SKESA/archive/refs/tags/{{ name }}.{{ version }}_saute.1.3.0_2.tar.gz
+  # sha256: dc5ad60f963afb09d3f2a3bab8917e657bd93364f0deca6e6844ede44968e979
+  url: https://github.com/ncbi/SKESA/archive/refs/tags/2.4.0.tar.gz
+  sha256: c07b56dfa394c013e519d5a246b7dee03db41d8ac912ab9ca02cf4d20bf13b15
+
+build:
+  number: 0
+  string: py_olc_0
+
+requirements:
+  # build:
+    # - make
+    # - {{ compiler('cxx') }}
+    # - python=3.9.12=h9a8a25e_1_cpython
+    # - {{ compiler('c') }}
+  host:
+    - python=3.9.12=h9a8a25e_1_cpython
+    - zlib=1.2.13=h166bdaf_4
+    - boost=1.80.0=py39h7c9e3ff_4
+  run:
+    - zlib=1.2.13=h166bdaf_4
+    - boost=1.80.0=py39h7c9e3ff_4
+    - python=3.9.12=h9a8a25e_1_cpython
+
+# test:
+  # commands:
+    # - skesa --version
+
+about:
+  home: https://ftp.ncbi.nlm.nih.gov/pub/agarwala/skesa
+  license: Public Domain
+  license_file: LICENSE
+  summary: 'Strategic Kmer Extension for Scrupulous Assemblies'

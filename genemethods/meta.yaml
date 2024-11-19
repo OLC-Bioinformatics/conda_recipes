@@ -1,28 +1,28 @@
 {% set name = "genemethods" %}
-{% set version = "0.0.0.57" %}
+{% set version = "0.0.0.61" %}
 
 package:
   name: '{{ name }}'
   version: '{{ version }}'
 
 source:
-  url: https://files.pythonhosted.org/packages/04/66/dda002ee1572068b59005ca2f80ceb9ae4494ec86847c4b12a3405c1cd06/genemethods-0.0.0.57.tar.gz
-  sha256: fa8d00393f16d76350557cc0a3fc1272573b76c4cb568c704daa47c837d6cfb0
+  url: https://files.pythonhosted.org/packages/00/91/bad524f9e23929c63ebaea77583767294595b718dc6fbeb90f5406de2414/genemethods-0.0.0.61.tar.gz
+  sha256: d9c77ca84debcb49d22268454962ab7a4e9d6ca47b535a2ad3a9494c7690615c
 
 build:
   noarch: python
-  number: 2
+  number: 1
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
     - python=3.9.12=h9a8a25e_1_cpython
   run:
-    - genewrappers=0.0.0.10=py_10
-    - psutil=5.9.0=py39hb9d737c_1
-    - pysam=0.19.0=py39h5030a8b_0
+    - genewrappers=0.0.0.10=py_11
+    - psutil=5.9.4=py39hb9d737c_0
+    - pysam=0.20.0=py39h9abd093_0
     - python=3.9.12=h9a8a25e_1_cpython
-    - seaborn=0.11.2=hd8ed1ab_0
+    - seaborn=0.12.2=hd8ed1ab_0
 
 #test:
 #  imports:

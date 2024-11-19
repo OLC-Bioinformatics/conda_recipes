@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: python -m pip install --no-deps --ignore-installed --no-cache-dir .
-  string: py_olc_3
+  string: py_olc_5
 
 requirements:
   build:
@@ -24,12 +24,13 @@ requirements:
     - joblib=1.1.0=pyhd8ed1ab_0
     - matplotlib-base=3.5.1=py39h2fa2bec_0
     - minimap2=2.24=h7132678_1
+    - openjdk=17.0.3=hafdced1_4
     - perl=5.32.1=2_h7f98852_perl5
     - pip=22.0.4=pyhd8ed1ab_0
     - python=3.9.12=h9a8a25e_1_cpython
     - setuptools=62.1.0=py39hf3d152e_0
     - simplejson=3.17.6=py39hb9d737c_1
-    - zlib=1.2.11=h166bdaf_1014
+    - zlib=1.2.13=h166bdaf_4
   run:
     - blast=2.12.0=hf3cf87c_4
     - circos=0.69.8=hdfd78af_1
@@ -37,11 +38,11 @@ requirements:
     - joblib=1.1.0=pyhd8ed1ab_0
     - matplotlib-base=3.5.1=py39h2fa2bec_0
     - minimap2=2.24=h7132678_1
-    - openjdk=11.0.9.1=h5cc2fde_1
+    - openjdk=17.0.3=hafdced1_4
     - perl=5.32.1=2_h7f98852_perl5
     - python=3.9.12=h9a8a25e_1_cpython
     - simplejson=3.17.6=py39hb9d737c_1
-    - zlib=1.2.11=h166bdaf_1014
+    - zlib=1.2.13=h166bdaf_4
 
 #test:
 #  source_files:
